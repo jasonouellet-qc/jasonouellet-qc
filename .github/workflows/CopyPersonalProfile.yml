@@ -1,0 +1,29 @@
+name: CopyPersonalProfile
+
+# only run this workflow when the openapi file has changed on the master branch
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron: '0 5 * * 0'
+env:
+  DESTINATION_PATH: ./src-profile
+  COPY_FILE_SCRIPT: ./.github/scripts/copy.sh
+  PUSH_SCRIPT: ./.github/scripts/push.sh
+jobs:
+  copy_personnal_profile: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout local profile
+      uses: actions/checkout@v4.1.1
+
+    - name: Checkout remote profile
+      uses: actions/checkout@v4.1.1
+      with:
+        repository: https://github.com/jasonouellet/jasonouellet.git
+        ref: main
+        path: ${{ $DESTINATION_PATH }}
+    - name: Copy profile files
+      run: bash ${{ COPY_FILE_SCRIPT }}
+      # make a branch in notehub-js repo and push the copy of the openapi file there
+    - name: Push to personal repo
+      run: bash ${{ PUSH_SCRIPT }}
