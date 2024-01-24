@@ -8,7 +8,7 @@ function l { # Log a message to the terminal.
     echo -e "[$SCRIPT_NAME] ${1:-}"
 }
 
-if $DEBUG == true then
+if [$DEBUG eq 1]; then
   echo "ls avant copie"
   ls -la -R
 fi
@@ -37,7 +37,7 @@ fi
 
 echo "images files copied"
 
-if $DEBUG == true then
+if [$DEBUG eq 1]; then
   echo "ls après copie"
   ls -la -R
 fi

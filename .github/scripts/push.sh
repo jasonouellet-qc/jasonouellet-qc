@@ -30,7 +30,7 @@ function l { # Log a message to the terminal.
   #git checkout -b $BRANCH
 #fi
 
-if $DEBUG == true then
+if [$DEBUG eq 1]; then
   echo "Statut avant add"
   git status
 fi
@@ -39,7 +39,7 @@ git add -A .
 git config user.name github-actions
 git config user.email github-actions@github.com
 
-if $DEBUG == true then
+if [$DEBUG eq 1]; then
   echo "Statut avant commit"
   git status
 fi
