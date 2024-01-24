@@ -3,6 +3,11 @@ name: CopyPersonalProfile
 # only run this workflow when the openapi file has changed on the master branch
 on: 
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/scripts/copy.sh'
+      - '.github/scripts/push.sh'
+      - '.github/workflows/CopyPersonalProfile.yml'
   schedule:
     - cron: '0 5 * * 0'
 env:
