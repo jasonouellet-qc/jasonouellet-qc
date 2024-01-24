@@ -21,7 +21,7 @@ jobs:
       with:
         repository: https://github.com/jasonouellet/jasonouellet.git
         ref: main
-        path: ${{ $DESTINATION_PATH }}
+        path: ${{ DESTINATION_PATH }}
     - name: Copy profile files
       run: bash ${{ COPY_FILE_SCRIPT }}
       # make a branch in notehub-js repo and push the copy of the openapi file there
