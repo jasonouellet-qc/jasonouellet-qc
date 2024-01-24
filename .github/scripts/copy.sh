@@ -8,6 +8,11 @@ function l { # Log a message to the terminal.
     echo -e "[$SCRIPT_NAME] ${1:-}"
 }
 
+if $DEBUG == true
+  echo "ls avant copie"
+  ls -la -R
+fi
+
 # File to copy from personal repo
 README_FILE=$SRC_PATH/README.md
 
@@ -31,3 +36,8 @@ if [ -f "$IMAGES_PATH" ]; then
 fi
 
 echo "images files copied"
+
+if $DEBUG == true
+  echo "ls après copie"
+  ls -la -R
+fi
