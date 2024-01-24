@@ -11,7 +11,7 @@ on:
   schedule:
     - cron: '0 5 * * 0'
 env:
-  SOURCE_PATH: ./src-profile
+  SRC_PATH: ./src-profile
   COPY_FILE_SCRIPT: ./.github/scripts/copy.sh
   PUSH_SCRIPT: ./.github/scripts/push.sh
 jobs:
@@ -28,7 +28,7 @@ jobs:
       with:
         repository: jasonouellet/jasonouellet.git
         ref: main
-        path: $SOURCE_PATH
+        path: $SRC_PATH
 
     - name: Copy profile files
       id: copy
